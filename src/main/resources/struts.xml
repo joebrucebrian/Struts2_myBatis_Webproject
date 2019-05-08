@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <package name="Actions*_*" extends="struts-default">
+        <action name="*_*" class="com.lty.action.{1}" method="{2}">
+            <result name="add" type="redirectAction">UserActions_userList</result>
+            <result name="delete" type="redirectAction">UserActions_userList</result>
+            <result name="userlist" type="dispatcher">userList.jsp</result>
+            <result name="userlistdesc" type="dispatcher">userList.jsp</result>
+            <result name="reupdate" type="dispatcher">updateUser.jsp</result>
+            <result name="update" type="redirectAction">UserActions_userList</result>
+            <allowed-methods>addUser,deleteUser,reUpdateUser,updateUser,userList,userActions,userListDESC</allowed-methods>
+        </action>
+        <!--<action name="addUserAction" class="com.lty.action.addUserAction">-->
+            <!--<result name="success" type="redirectAction">userListAction</result>-->
+        <!--</action>-->
+
+        <!--<action name="userListAction" class="com.lty.action.userListAction">-->
+            <!--<result name="success" type="dispatcher">userList.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="deleteUserAction" class="com.lty.action.deleteUserAction">-->
+            <!--<result name="success" type="redirectAction">userListAction</result>-->
+        <!--</action>-->
+
+        <!--<action name="reUpdateUserAction" class="com.lty.action.reUpdateUserAction">-->
+            <!--<result name="success" type="dispatcher">updateUser.jsp</result>-->
+        <!--</action>-->
+
+        <!--<action name="updateUserAction" class="com.lty.action.updateUserAction">-->
+            <!--<result name="success" type="redirectAction">userListAction</result>-->
+        <!--</action>-->
+
+    </package>
+</struts>

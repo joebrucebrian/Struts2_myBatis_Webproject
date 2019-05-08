@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lty.dao.userDao">
+    <insert id="add" parameterType="com.lty.model.User">
+        insert into t_user(name,age) values(#{name},#{age})
+    </insert>
+
+    <delete id="delete" parameterType="com.lty.model.User">
+        delete from t_user where id=#{id}
+    </delete>
+    <update id="update" parameterType="com.lty.model.User">
+        update t_user set name=#{name},age=#{age} where id=#{id}
+    </update>
+    <select id="getUserById" resultType="com.lty.model.User">
+        <!--<![CDATA[select id,user_name name,age from t_user where id <> #{id}]]]>-->
+        select id,name,age from t_user where id = #{id}
+    </select>
+    <select id="getList" resultType="com.lty.model.User">
+        select id,name,age from t_user
+    </select>
+</mapper>
